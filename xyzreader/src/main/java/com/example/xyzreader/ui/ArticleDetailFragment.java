@@ -22,6 +22,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.android.volley.VolleyError;
@@ -55,6 +56,7 @@ public class ArticleDetailFragment extends Fragment implements
     private int mScrollY;
     private boolean mIsCard = false;
     private int mStatusBarFullOpacityBottom;
+    private ProgressBar mLoadingPanel;
 
     private Activity mActivity;
 
@@ -140,7 +142,7 @@ public class ArticleDetailFragment extends Fragment implements
                         .getIntent(), getString(R.string.action_share)));
             }
         });
-
+        mLoadingPanel = (ProgressBar) mRootView.findViewById(R.id.loadingPanel);
         bindViews();
         updateStatusBar();
         return mRootView;
@@ -216,13 +218,14 @@ public class ArticleDetailFragment extends Fragment implements
                                 mPhotoView.setImageBitmap(imageContainer.getBitmap());
                                 mRootView.findViewById(R.id.meta_bar)
                                         .setBackgroundColor(mMutedColor);
+                                mLoadingPanel.setVisibility(View.GONE);
                                 updateStatusBar();
                             }
                         }
 
                         @Override
                         public void onErrorResponse(VolleyError volleyError) {
-
+                            mLoadingPanel.setVisibility(View.GONE);
                         }
                     });
         } else {
