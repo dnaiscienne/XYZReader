@@ -24,6 +24,7 @@
     <color name="deep_orange_700">#E64A19</color>
     
     <color name="orange_900">#E65100</color>
+    <color name="teal_500">#009688</color>
     <color name="lime_500">#CDDC39</color>
     <!--Accent Color -->
     <color name="lime_a200">#EEFF41</color>
@@ -32,6 +33,8 @@
     <color name="gray_650">#727272</color>
 
     <color name="ltgray">#ffe0e0e0</color>
+    <color name="midgray">#8fff</color>
+    <color name="white">#fff</color>
 
 
 </resources>
